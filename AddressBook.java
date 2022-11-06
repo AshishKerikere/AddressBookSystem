@@ -30,7 +30,7 @@ public class AddressBook {
         index++;
     }
 
-    public void findContact(){
+    public void changeContactDetails(){
 
         System.out.println("Enter the First Name");
         String searchFirstName = scanner.next();
@@ -87,6 +87,37 @@ public class AddressBook {
        else {
            System.out.println("Name not found try again");
        }
+    }
+
+    public void deleteContact(){
+        System.out.println("Enter the First Name");
+        String searchFirstName = scanner.next();
+        System.out.println("Enter the Last Name");
+        String searchLastName = scanner.next();
+
+        int location = 0;
+        boolean search = false;
+
+        for (int i = 0; i < 100; i++){
+            if (person[i].first_Name.equals(searchFirstName) && person[i].last_Name.equals(searchLastName)){
+                location = i;
+                search = true;
+                break;
+            }
+        }
+
+        if(search){
+            for(int i = location; i<(index-1); i++){
+                person[i].first_Name = person[i+1].first_Name;
+                person[i].last_Name = person[i+1].last_Name;
+                person[i].address = person[i+1].address;
+                person[i].city = person[i+1].city;
+                person[i].state = person[i+1].state;
+                person[i].zip = person[i+1].zip;
+                person[i].phone_Number = person[i+1].phone_Number;
+                person[i].email = person[i+1].email;
+            }
+        }
     }
 
 }
