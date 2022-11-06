@@ -30,4 +30,63 @@ public class AddressBook {
         index++;
     }
 
+    public void findContact(){
+
+        System.out.println("Enter the First Name");
+        String searchFirstName = scanner.next();
+        System.out.println("Enter the Last Name");
+        String searchLastName = scanner.next();
+
+        int location = 0;
+        boolean search = false;
+
+        for (int i = 0; i < 100; i++){
+            if (person[i].first_Name.equals(searchFirstName) && person[i].last_Name.equals(searchLastName)){
+             location = i;
+             search = true;
+             break;
+            }
+        }
+
+       if (search){
+
+           int toCheck = 1;
+           while(toCheck == 1){
+               int select = 0;
+
+               System.out.println("Enter 1 to change First Name, 2 to change Second Name," );
+               System.out.println("Enter 3 to change Address, 4 to change City," );
+               System.out.println("Enter 5 to State, 6 to change Zip," );
+               System.out.println("Enter 7 to change Phone Number, 8 to change Email." );
+
+               select = scanner.nextInt();
+               System.out.println("Enter the detail to be changed");
+
+               switch (select){
+                   case 1 : person[location].first_Name = scanner.next();
+                            break;
+                   case 2 : person[location].last_Name = scanner.next();
+                            break;
+                   case 3 : person[location].address = scanner.next();
+                            break;
+                   case 4 : person[location].city = scanner.next();
+                            break;
+                   case 5 : person[location].state = scanner.next();
+                            break;
+                   case 6 : person[location].zip = scanner.next();
+                            break;
+                   case 7 : person[location].phone_Number = scanner.next();
+                            break;
+                   case 8 : person[location].email = scanner.next();
+                            break;
+               }
+               System.out.println("If done with changes press 0 else press 1");
+               toCheck = scanner.nextInt();
+           }
+       }
+       else {
+           System.out.println("Name not found try again");
+       }
+    }
+
 }
