@@ -1,6 +1,11 @@
 import java.util.Scanner;
+import java.lang.String;
 public class AddressBook {
 
+    String addressBookName = "";
+    public AddressBook(String addressBookName){
+        this.addressBookName = addressBookName;
+    }
     Person person[] = new Person[100];
     int index = 1;
     Scanner scanner = new Scanner(System.in);
